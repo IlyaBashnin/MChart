@@ -11,16 +11,9 @@ import requests
 
 
 def index(request):
-    data = {'header': 'Hello Django', 'message': 'Welcome to YMusiChart parser'}
-    return render(request, 'chartparser/index.html', context=data)
-
-
-def about(request):
-    return HttpResponse('<h2>About</h2>')
-
-
-def contact(request):
-    return HttpResponseRedirect('/about')
+    authors = ['First', 'Second', 'Third']
+    data = {'header': 'Hello Django', 'message': 'Welcome to YMusiChart parser', 'authors': authors}
+    return render(request, 'index.html', context=data)
 
 
 def details(request):
