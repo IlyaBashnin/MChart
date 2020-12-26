@@ -12,8 +12,8 @@ import requests
 
 
 def index(request):
-    authors = ['First', 'Second', 'Third']
-    data = {'header': 'Hello Django', 'message': 'Welcome to YMusiChart parser', 'authors': authors}
+    authors = ['ONE', 'TWO', 'THREE']
+    data = {'header': 'Hello', 'message': 'Welcome to YMusiChart parser', 'authors': authors}
     return render(request, 'index.html', context=data)
 
 

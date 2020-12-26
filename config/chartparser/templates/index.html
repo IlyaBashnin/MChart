@@ -4,18 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="{% static "css/styles.css" %}" />
-    <title>Hello Django</title>
+    <title>Hello</title>
 </head>
 <body>
     <h1>{{ header }}</h1>
     <p>{{ message }}</p>
-    <img src="{% static "images/Bashnin Black.png" %}">
-    <ul>
-        {% for author in authors %}
-        <li>{{ author }}</li>
-        {% empty %}
-        <li>Chart array is empty</li>
-        {% endfor %}
-    </ul>
+    <a href="yamusic"><img src="{% static "images/Bashnin Black.png" %}"></a>
+    <p></p>
+        <nav>
+            <ul>
+                {% for author in authors %}
+                <li>{{ author }}</li>
+                {% empty %}
+                <li>Chart array is empty</li>
+                {% endfor %}
+            </ul>
+        </nav>
 </body>
 </html>
