@@ -1,8 +1,9 @@
-from .models import YandexMusicChart
-from bs4 import BeautifulSoup
+from .forms import YMusiChartForm
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
-from pprint import pprint
+
+from .models import YandexMusicChart
+from bs4 import BeautifulSoup
 import csv
 import requests
 
@@ -21,9 +22,16 @@ def details(request):
 
 
 def yamusic_parsing(request):
-    author_name = request.GET.get('author', '')
-    output = '<h2>Author:</h2><h3>{0}'.format(author_name)
-    return HttpResponse(output)
+    if request.method == "POST":
+        form = YMusiChartForm(request.POST)
+        if form.is_valid():
+            author_name = form.cleaned_data['author_name']
+            return HttpResponse('<h2>Looking {0}</h2>'.format(author_name))
+        else:
+            return HttpResponse('Invalid author name')
+    else:
+        form = YMusiChartForm()
+        return render(request, 'chart.html', {'form': form})
 
 
 # if __name__=="__main__":
