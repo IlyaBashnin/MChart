@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+
+    path('', include('chartparser.urls'), name='home'),
     path('admin/', admin.site.urls),
-    path('chart/', include('chartparser.urls'))
+
 ]
