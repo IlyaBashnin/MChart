@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class YandexMusicChart(models.Model):
+    chart_position = models.IntegerField()
+    track_name = models.CharField(max_length=100)
+    author_name = models.CharField(max_length=50)
