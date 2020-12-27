@@ -7,7 +7,8 @@ class YandexMusicChart(models.Model):
     author_name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.author_name
+        out = f'{self.chart_position}. | {self.author_name}  -  {self.track_name}'
+        return out
 
     class Meta:
         verbose_name = 'Chart'
