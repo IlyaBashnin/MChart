@@ -12,7 +12,12 @@ def yandex_music_chart_parsing() -> None:
     tracks = soup.find_all('div', class_='d-track__name')
     authors = soup.find_all('div', class_='d-track__meta')
     for i in range(len(tracks)):
-        yandex_music_chart = YandexMusicChart(chart_position=i,
-                                              track_name=tracks[i].text,
-                                              author_name=authors[i].text)
-        yandex_music_chart.save()
+        if YandexMusicChart.objects.filter(chart_position=i+1,
+                                            track_name=tracks[i].text,
+                                            author_name=authors[i].text).exists():
+            pass
+        else:
+            yandex_music_chart = YandexMusicChart(chart_position=i+1,
+                                                  track_name=tracks[i].text,
+                                                  author_name=authors[i].text)
+            yandex_music_chart.save()
