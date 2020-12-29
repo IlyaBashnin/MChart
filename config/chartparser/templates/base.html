@@ -3,12 +3,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    <link rel="stylesheet" href="static/css/style.css">
     <title>{% block title %}Default title{% endblock title %}</title>
 </head>
 <body>
-    <h1>{% block header %}{% endblock header %}</h1>
-    <div>{% block content%}{% endblock content %}</div>
-    <div>-=-</div>
+    <section class="container">
+        <nav>
+          <ul class="nav">
+            <li><a href="index.html" class="nav-icon" title="Home"><span class="icon-home">Home</span></a></li>
+            <li><a href="search.html" title="Search">Search</a></li>
+            <li><a href="about.html" title="About">About</a></li>
+            <li><a href="contact.html" title="Contact">Contact</a></li>
+          </ul>
+        </nav>
+    </section>
+        <h1>{% block header %}{% endblock header %}</h1>
+        <div>{% block content%}{% endblock content %}</div>
+    <h6>{% now "Y" %} year</h6>
 </body>
 </html>
