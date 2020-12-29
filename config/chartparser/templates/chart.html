@@ -1,12 +1,20 @@
 {% extends "base.html" %}
-{% block title %}Yandex Music Chart{% endblock title %}
-{% block header %}YMusiChart{% endblock header %}
+{% block title %}Chart{% endblock title %}
+{% block header %}{{ header }}{% endblock header %}
 {% block content %}
-    <form method="POST">
-            {% csrf_token %}
-        <table>
-            {{ form.as_p }}
-        </table>
-        <input type="submit" value="Send" >
-    </form>
+     <section class="container">
+        <p>{{ message }}</p>
+        <p></p>
+            <nav>
+                <ul>
+                    {% for chart in charts %}
+                    <li>{{ chart }}</li>
+                    {% empty %}
+                    <li>
+                        <font color=red > No matches </font>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+    </section>
 {% endblock content %}
