@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
-    <title>Hello</title>
-</head>
-<body>
-    <h1>{{ header }}</h1>
-    <p>{{ message }}</p>
-    <a href="yamusic"><img src="{% static "images/Bashnin Black.png" %}"></a>
-    <p></p>
-        <nav>
-            <ul>
-                {% for author in authors %}
-                <li>{{ author }}</li>
-                {% empty %}
-                <li>Chart array is empty</li>
-                {% endfor %}
-            </ul>
-        </nav>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block header %}{{ header }}{% endblock header %}
+{% block content %}
+   <p>
+        {{message}}
+   </p>
+   <li>
+       <a href="yandex.html">
+           <img src="../static/images/ya_music_icon.png" width="200" height="200" border="0" alt="Yandex Music">
+       </a>
+   </li>
+   <li>
+       <a href="spotify.html">
+           <img src="../static/images/spotify_icon.png" width="200" height="200" border="0" alt="Spotify">
+       </a>
+   </li>
+   <li>
+       <a href="lastfm.html">
+           <img src="../static/images/lastfm_icon.png" width="200" height="200" border="0" alt="LastFM">
+       </a>
+   </li>
+
+{% endblock content %}
