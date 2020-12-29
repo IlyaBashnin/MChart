@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Yandex Music Chart{% endblock title %}
+{% block header %}YMusiChart{% endblock header %}
+{% block content %}
+    <p>
+      Search
+    </p>
+    <form method="POST">
+            {% csrf_token %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <input type="submit" value="Send" >
+    </form>
+{% endblock content %}
